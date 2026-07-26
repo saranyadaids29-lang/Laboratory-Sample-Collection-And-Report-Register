@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratory Sample Collection & Report Register</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+        <h1>
+            <i class="fa-solid fa-flask"></i>
+            Laboratory Sample Collection & Report Register
+        </h1>
+
+        <p>
+            Manage laboratory samples from collection to report generation.
+        </p>
+    </header>
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <section class="dashboard">
+
+        <div class="card total">
+            <i class="fa-solid fa-vials"></i>
+            <h3>Total Samples</h3>
+            <h2 id="totalSamples">0</h2>
+        </div>
+
+        <div class="card pending">
+            <i class="fa-solid fa-hourglass-half"></i>
+            <h3>Pending</h3>
+            <h2 id="pendingSamples">0</h2>
+        </div>
+
+        <div class="card processed">
+            <i class="fa-solid fa-check-circle"></i>
+            <h3>Processed</h3>
+            <h2 id="processedSamples">0</h2>
+        </div>
+
+        <div class="card report">
+            <i class="fa-solid fa-file-medical"></i>
+            <h3>Reports Ready</h3>
+            <h2 id="reportReady">0</h2>
+        </div>
+
+    </section>
+
+    <!-- ================= CONTROLS ================= -->
+
+    <section class="controls">
+
+        <input type="text"
+            id="searchInput"
+            placeholder="Search by Sample ID, Patient Name or Test Type">
+
+        <select id="statusFilter">
+            <option value="All">All Status</option>
+            <option value="Collected">Collected</option>
+            <option value="Processing">Processing</option>
+            <option value="Processed">Processed</option>
+            <option value="Report Ready">Report Ready</option>
+            <option value="Delivered">Delivered</option>
+        </select>
+
+        <button id="addBtn">
+            <i class="fa-solid fa-plus"></i>
+            Add Sample
+        </button>
+
+    </section>
+
+    <!-- ================= TABLE ================= -->
+
+    <section class="table-section">
+
+        <table id="sampleTable">
+
+            <thead>
+
+                <tr>
+                    <th>Sample ID</th>
+                    <th>Patient Name</th>
+                    <th>Test Type</th>
+                    <th>Collected Date</th>
+                    <th>Status</th>
+                    <th>Pending Days</th>
+                    <th>Processed Date</th>
+                    <th>Report Issued</th>
+                    <th>Collected By</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="tableBody">
+
+                <!-- Data from JavaScript -->
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- ================= MODAL ================= -->
+
+    <div class="modal" id="sampleModal">
+
+        <div class="modal-content">
+
+            <span class="close" id="closeModal">&times;</span>
+
+            <h2>Add / Edit Sample</h2>
+
+            <form id="sampleForm">
+
+                <div class="form-group">
+                    <label>Sample ID</label>
+                    <input type="text" id="sampleId" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Patient Name</label>
+                    <input type="text" id="patientName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Test Type</label>
+                    <input type="text" id="testType" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Collected Date</label>
+                    <input type="date" id="collectedDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+
+                    <select id="status">
+
+                        <option value="Collected">Collected</option>
+                        <option value="Processing">Processing</option>
+                        <option value="Processed">Processed</option>
+                        <option value="Report Ready">Report Ready</option>
+                        <option value="Delivered">Delivered</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+                    <label>Processed Date</label>
+                    <input type="date" id="processedDate">
+                </div>
+
+                <div class="form-group">
+                    <label>Report Issued Date</label>
+                    <input type="date" id="reportIssuedDate">
+                </div>
+
+                <div class="form-group">
+                    <label>Collected By</label>
+                    <input type="text" id="collectedBy" required>
+                </div>
+
+                <button type="submit" class="save-btn">
+                    Save Sample
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- ================= MESSAGES ================= -->
+
+    <div id="loading" class="message" style="display:none;">
+        Loading...
+    </div>
+
+    <div id="empty" class="message" style="display:none;">
+        No Records Found
+    </div>
+
+    <div id="error" class="message" style="display:none;">
+        Something went wrong!
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

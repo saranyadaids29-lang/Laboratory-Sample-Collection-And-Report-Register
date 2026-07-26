@@ -1,0 +1,533 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f4f7fb;
+    color: #333;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.header {
+    background: #1565c0;
+    color: #fff;
+    text-align: center;
+    padding: 25px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .2);
+}
+
+.header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 17px;
+}
+
+/* ===========================
+   DASHBOARD
+=========================== */
+
+.dashboard {
+    width: 95%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card i {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    font-size: 32px;
+}
+
+.total {
+    border-top: 6px solid #1565c0;
+}
+
+.pending {
+    border-top: 6px solid orange;
+}
+
+.processed {
+    border-top: 6px solid green;
+}
+
+.report {
+    border-top: 6px solid purple;
+}
+
+/* ===========================
+   CONTROLS
+=========================== */
+
+.controls {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.controls input {
+    flex: 1;
+    min-width: 250px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.controls select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.controls button {
+    background: #1565c0;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: .3s;
+}
+
+.controls button:hover {
+    background: #0d47a1;
+}
+
+/* ===========================
+   TABLE
+=========================== */
+
+.table-section {
+    width: 95%;
+    margin: 30px auto;
+    background: white;
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #1565c0;
+    color: white;
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+tbody tr:hover {
+    background: #f5f5f5;
+}
+
+.action-btn {
+    border: none;
+    padding: 8px 12px;
+    margin: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.edit-btn {
+    background: #2e7d32;
+}
+
+.delete-btn {
+    background: #d32f2f;
+}
+
+/* ===========================
+   MODAL (FIXED & IMPROVED)
+=========================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .5);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    width: 600px;
+    max-width: 90%;
+    max-height: 85vh; /* Prevents form from clipping screen height */
+    overflow-y: auto; /* Enables inner scrolling */
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: popup .3s ease;
+}
+
+@keyframes popup {
+    from {
+        transform: scale(.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #d32f2f;
+    transition: 0.2s;
+}
+
+.close:hover {
+    color: #b71c1c;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #1565c0;
+}
+
+/* Grid layout for fields inside modal */
+#sampleForm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #1565c0;
+    box-shadow: 0 0 5px rgba(21, 101, 192, 0.3);
+}
+
+/* Make Save Button span full width across grid */
+.save-btn {
+    grid-column: span 2;
+    width: 100%;
+    padding: 12px;
+    background: #1565c0;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.save-btn:hover {
+    background: #0d47a1;
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   MESSAGE BOXES
+=========================== */
+
+.message {
+    width: 95%;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#loading {
+    background: #e3f2fd;
+    color: #1565c0;
+    border: 1px solid #90caf9;
+}
+
+#empty {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+#error {
+    background: #fdecea;
+    color: #c62828;
+    border: 1px solid #f5c6cb;
+}
+
+/* ===========================
+   STATUS BADGES
+=========================== */
+
+.status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    display: inline-block;
+}
+
+.collected {
+    background: #1976d2;
+}
+
+.processing {
+    background: #fb8c00;
+}
+
+.processed {
+    background: #43a047;
+}
+
+.ready {
+    background: #8e24aa;
+}
+
+.delivered {
+    background: #546e7a;
+}
+
+/* ===========================
+   TABLE ROW HOVER
+=========================== */
+
+tbody tr {
+    transition: 0.3s;
+}
+
+tbody tr:hover {
+    background: #eef5ff;
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1565c0;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0d47a1;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+
+@media (max-width: 992px) {
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .controls input,
+    .controls select,
+    .controls button {
+        width: 100%;
+    }
+
+    .table-section {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 900px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 26px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card i {
+        font-size: 35px;
+    }
+
+    .card h2 {
+        font-size: 28px;
+    }
+
+    /* Modal switches to 1 single column on smaller screens */
+    #sampleForm {
+        grid-template-columns: 1fr;
+    }
+
+    .save-btn {
+        grid-column: span 1;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .header p {
+        font-size: 13px;
+    }
+
+    .controls {
+        gap: 10px;
+    }
+
+    .controls input,
+    .controls select,
+    .controls button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .card h2 {
+        font-size: 24px;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .action-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .close {
+        font-size: 24px;
+    }
+}
+
+/* ===========================
+   FOOTER (Optional)
+=========================== */
+
+.footer {
+    margin-top: 40px;
+    background: #1565c0;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
