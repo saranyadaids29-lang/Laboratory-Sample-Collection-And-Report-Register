@@ -1,6 +1,10 @@
 # Laboratory Sample Collection & Report Register
 
-A web-based application for managing laboratory sample collection, processing, and report generation. The system allows laboratory staff to add, update, delete, search, and filter sample records while maintaining an organized digital register.
+## Problem Statement
+
+Laboratories often maintain sample collection and report records manually, making it difficult to track sample status and pending reports.
+
+This application digitizes the process by storing laboratory sample details, tracking sample status, and managing report generation efficiently.
 
 ## Features
 
@@ -11,7 +15,7 @@ A web-based application for managing laboratory sample collection, processing, a
 - Search by Sample ID, Patient Name, or Test Type
 - Filter by Status
 - Dashboard with sample statistics
-- Pending days calculation
+- Automatic Pending Days calculation
 - Responsive design
 - SQLite database integration
 
@@ -25,20 +29,60 @@ A web-based application for managing laboratory sample collection, processing, a
 - SQLite3
 - CORS
 
-## Installation
+## How to Run
+
+1. Clone the repository.
 
 ```bash
 git clone https://github.com/your-username/laboratory-sample-collection-report-register.git
+```
+
+2. Open the project folder.
+
+```bash
 cd laboratory-sample-collection-report-register
+```
+
+3. Install dependencies.
+
+```bash
 npm install
+```
+
+4. Start the server.
+
+```bash
 node server.js
 ```
 
-Open your browser and visit:
+5. Open your browser and visit:
 
 ```
 http://127.0.0.1:3000
 ```
+
+## Field Description
+
+| Field | Description |
+|--------|-------------|
+| Sample ID | Unique identifier for each sample |
+| Patient Name | Name of the patient |
+| Test Type | Type of laboratory test |
+| Collected Date | Date when the sample was collected |
+| Status | Current stage of the sample |
+| Processed Date | Date when the sample was processed |
+| Report Issued Date | Date when the report was issued |
+| Collected By | Name of the laboratory staff member |
+
+## Derived Value
+
+**Pending Days** is calculated using:
+
+```
+Pending Days = Current Date - Collected Date
+```
+
+If the status is **Report Ready** or **Delivered**, the Pending Days value is **0**.
 
 ## Project Structure
 
@@ -56,19 +100,18 @@ package.json
 README.md
 ```
 
-## Future Enhancements
+## Current Limitations
 
-- User Authentication
-- PDF Report Generation
-- Email Notifications
-- Barcode/QR Code Support
-- Cloud Database
-- Excel/PDF Export
-- Role-Based Access
+- User authentication is not implemented.
+- PDF report generation is not available.
+- Email notifications are not implemented.
+- Barcode/QR code support is not available.
+- Export to Excel/PDF is not implemented.
 
 
-  ## demo video
-  https://drive.google.com/file/d/1_pWYfYb8XrPx_6B1rD4DFkVp1S3sXhzG/view?usp=sharing
+## Demo Video
+
+https://drive.google.com/file/d/1_pWYfYb8XrPx_6B1rD4DFkVp1S3sXhzG/view?usp=sharing
 
 ## Developed By
 
